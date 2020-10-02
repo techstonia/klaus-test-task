@@ -26,6 +26,10 @@ export const {
 // selectors
 export const selectUsersIds = state => state.users.map(({id}) => id);
 export const selectUser = (state, userId) => state.users.find(({id}) => id === userId);
+export const getMarkedUsersCount = (state) => state.users.reduce(
+  (accumulator, {selected}) => accumulator + (selected ? 1 : 0),
+  0,
+);
 
 // reducer
 export default usersSlice.reducer;

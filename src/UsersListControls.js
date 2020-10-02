@@ -1,4 +1,6 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
+import {getMarkedUsersCount} from './redux/usersSlice';
 import styled from 'styled-components';
 import {colors} from './styleConstants';
 import {DeleteButton, EditButton} from './Buttons';
@@ -25,9 +27,11 @@ const StyledEditButton = styled(EditButton)`
 `;
 
 function UsersListControls() {
+  const count = useSelector(getMarkedUsersCount);
+
   return (
     <Container>
-      <UsersCount>2 users selected</UsersCount>
+      <UsersCount>{count} users selected</UsersCount>
       <StyledEditButton text="Edit" />
       <DeleteButton text="Delete" />
     </Container>
