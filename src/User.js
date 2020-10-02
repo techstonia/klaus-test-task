@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled, {css} from 'styled-components';
 import RoleLabel from './RoleLabel';
 import {
   rowHeight,
   scrollableAreaWidth,
 } from './styleConstants';
+import {
+  EditButton,
+  DeleteButton,
+} from './Buttons';
 
 const horizontalMargin = 16;
 const borderRadius = 4;
@@ -82,14 +86,43 @@ const Email = styled.div`
   color: #718096;
 `;
 
+const ButtonsContainer = styled.span`
+  position: absolute;
+  left: 554px;
+  top: 16px;
+`;
+
+const StyledEditButton = styled(EditButton)`
+  margin-right: 4px;
+`;
+
 function User(props) {
+  const [hovered, setHovered] = useState(false);
+  const onMouseOver = () => setHovered(true);
+  const onMouseLeave = () => setHovered(false);
+
+  const renderButtons = () => {
+    if (hovered) {
+      return (
+        <ButtonsContainer>
+          <StyledEditButton text="Edit" />
+          <DeleteButton />
+        </ButtonsContainer>
+      );
+    }
+  };
+
   return (
-    <Container>
+    <Container
+      onMouseOver={onMouseOver}
+      onMouseLeave={onMouseLeave}
+    >
       <Checkbox />
       <Img src={props.avatar} />
       <Name>{props.name}</Name>
       <Email>{props.email}</Email>
       <RoleLabel role={props.role} />
+      {renderButtons()}
     </Container>
   );
 }
