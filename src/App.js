@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {createGlobalStyle} from 'styled-components';
 import Header from './Header';
+import UsersList from './UsersList';
 import {scrollableAreaWidth} from './styleConstants';
 
 const GlobalStyle = createGlobalStyle`
@@ -30,6 +31,7 @@ function App() {
     <Container>
       <GlobalStyle />
       <Header />
+      <UsersList />
     </Container>
   );
 }
