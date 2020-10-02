@@ -84,7 +84,7 @@ const Name = styled.div`
 const Email = styled.div`
   ${textCSS}
   top: 34px;
-  color: #718096;
+  color: ${colors.gray60};
 `;
 
 const ButtonsContainer = styled.span`

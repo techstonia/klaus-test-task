@@ -4,5 +4,6 @@ export const rowMargin = 2;
 
 // Colors
 export const colors = {
+  gray60: "#718096",
   gray80: "#2D3748",
 };
