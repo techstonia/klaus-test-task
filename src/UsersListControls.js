@@ -59,6 +59,8 @@ const ColumnHeaderContainer = styled.span`
   font-size: 12px;
   color: ${colors.gray60};
   cursor: pointer;
+  padding: 3px;
+  top: -3px;
 `;
 
 const ColumnHeader = (props) => {
@@ -71,11 +73,11 @@ const ColumnHeader = (props) => {
 };
 
 const UserColumnHeader = styled(ColumnHeader)`
-  left: 28px;
+  left: 25px;
 `;
 
 const PermissionColumnHeader = styled(ColumnHeader)`
-  left: 385px;
+  left: 382px;
 `;
 
 function UsersListControls() {
