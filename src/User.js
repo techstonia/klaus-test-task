@@ -8,6 +8,7 @@ import {
 } from './redux/usersSlice';
 import RoleLabel from './RoleLabel';
 import {
+  colors,
   rowHeight,
   scrollableAreaWidth,
 } from './styleConstants';
@@ -83,7 +84,7 @@ const Name = styled.div`
   ${textCSS}
   top: 14px;
   font-weight: 500;
-  color: #2D3748;
+  color: ${colors.gray80};
 `;
 
 const Email = styled.div`
