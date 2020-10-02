@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
 import styled, {css} from 'styled-components';
+import {useSelector, useDispatch} from 'react-redux';
+import {
+  markUserAsSelected,
+  markUserAsDeselected,
+  userIsSelected,
+} from './redux/usersSlice';
 import RoleLabel from './RoleLabel';
 import {
   rowHeight,
@@ -97,9 +103,20 @@ const StyledEditButton = styled(EditButton)`
 `;
 
 function User(props) {
+  const dispatch = useDispatch();
+  const selected = useSelector((state) => userIsSelected(state, props.id));
   const [hovered, setHovered] = useState(false);
   const onMouseOver = () => setHovered(true);
   const onMouseLeave = () => setHovered(false);
+
+  const onClick = () => {
+    if (selected) {
+      dispatch(markUserAsDeselected(props.id));
+    }
+    else {
+      dispatch(markUserAsSelected(props.id));
+    }
+  };
 
   const renderButtons = () => {
     if (hovered) {
@@ -116,8 +133,10 @@ function User(props) {
     <Container
       onMouseOver={onMouseOver}
       onMouseLeave={onMouseLeave}
+      onClick={onClick}
+      checked={selected}
     >
-      <Checkbox />
+      <Checkbox defaultChecked={selected} />
       <Img src={props.avatar} />
       <Name>{props.name}</Name>
       <Email>{props.email}</Email>
