@@ -12,6 +12,7 @@ import {
   rowHeight,
   scrollableAreaWidth,
 } from './styleConstants';
+import Checkbox from './Checkbox';
 import {
   EditButton,
   DeleteButton,
@@ -47,17 +48,10 @@ const Container = styled.div`
   `}
 `;
 
-const Checkbox = styled.input.attrs({
-  type: "checkbox",
-})`
+const StyledCheckbox = styled(Checkbox)`
   position: absolute;
   left: 16px;
   top: 24px;
-  cursor: pointer;
-  width: 16px;
-  height: 16px;
-  padding: 0;
-  margin: 0;
 `;
 
 const Img = styled.img`
@@ -139,7 +133,7 @@ function User(props) {
       onClick={onClick}
       checked={user.selected}
     >
-      <Checkbox defaultChecked={user.selected} />
+      <StyledCheckbox defaultChecked={user.selected} />
       <Img src={user.avatar} />
       <Name>{user.name}</Name>
       <Email>{user.email}</Email>
