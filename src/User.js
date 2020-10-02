@@ -118,12 +118,14 @@ function User(props) {
     }
   };
 
+  const stopPropagation = (evt) => evt.stopPropagation();
+
   const renderButtons = () => {
     if (hovered) {
       return (
         <ButtonsContainer>
-          <StyledEditButton text="Edit" />
-          <DeleteButton />
+          <StyledEditButton text="Edit" onClick={stopPropagation} />
+          <DeleteButton onClick={stopPropagation} />
         </ButtonsContainer>
       );
     }

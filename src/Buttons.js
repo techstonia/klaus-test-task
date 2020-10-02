@@ -38,12 +38,15 @@ const Text = styled.span`
 const buttonWithIcon = (IconComponent) => {
   const Icon = StyledIcon(IconComponent);
 
-  return (props) => (
-    <Button className={props.className}>
-      <Icon />
-      {props.text && <Text>{props.text}</Text>}
-    </Button>
-  );
+  return (props) => {
+    const {text, ...restOfProps} = props;
+    return (
+      <Button {...restOfProps}>
+        <Icon/>
+        {text && <Text>{text}</Text>}
+      </Button>
+    );
+  };
 };
 
 export const DeleteButton = buttonWithIcon(Trash);
