@@ -24,8 +24,8 @@ export const {
 } = usersSlice.actions;
 
 // selectors
-export const selectUsers = state => state.users;
-export const userIsSelected = (state, userId) => !!state.users.find(({id}) => id === userId).selected;
+export const selectUsersIds = state => state.users.map(({id}) => id);
+export const selectUser = (state, userId) => state.users.find(({id}) => id === userId);
 
 // reducer
 export default usersSlice.reducer;

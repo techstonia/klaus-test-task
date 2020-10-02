@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {
   markUserAsSelected,
   markUserAsDeselected,
-  userIsSelected,
+  selectUser,
 } from './redux/usersSlice';
 import RoleLabel from './RoleLabel';
 import {
@@ -104,17 +104,17 @@ const StyledEditButton = styled(EditButton)`
 
 function User(props) {
   const dispatch = useDispatch();
-  const selected = useSelector((state) => userIsSelected(state, props.id));
+  const user = useSelector((state) => selectUser(state, props.userId));
   const [hovered, setHovered] = useState(false);
   const onMouseOver = () => setHovered(true);
   const onMouseLeave = () => setHovered(false);
 
   const onClick = () => {
-    if (selected) {
-      dispatch(markUserAsDeselected(props.id));
+    if (user.selected) {
+      dispatch(markUserAsDeselected(user.id));
     }
     else {
-      dispatch(markUserAsSelected(props.id));
+      dispatch(markUserAsSelected(user.id));
     }
   };
 
@@ -136,13 +136,13 @@ function User(props) {
       onMouseOver={onMouseOver}
       onMouseLeave={onMouseLeave}
       onClick={onClick}
-      checked={selected}
+      checked={user.selected}
     >
-      <Checkbox defaultChecked={selected} />
-      <Img src={props.avatar} />
-      <Name>{props.name}</Name>
-      <Email>{props.email}</Email>
-      <RoleLabel role={props.role} />
+      <Checkbox defaultChecked={user.selected} />
+      <Img src={user.avatar} />
+      <Name>{user.name}</Name>
+      <Email>{user.email}</Email>
+      <RoleLabel role={user.role} />
       {renderButtons()}
     </Container>
   );
