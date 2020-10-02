@@ -1,11 +1,16 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {getMarkedUsersCount} from './redux/usersSlice';
 import styled, {css} from 'styled-components';
 import {colors} from './styleConstants';
 import {DeleteButton, EditButton} from './Buttons';
 import Checkbox from './Checkbox';
 import {ReactComponent as ArrowDown} from './assets/arrow-down.svg';
+import {
+  changeSortingConfig,
+  selectSortingConfig,
+} from './redux/sortingConfigSlice';
+import calculateNextSortingConfig from './redux/calculateNextSortingConfig';
 
 const Container = styled.div`
   height: 78px;
@@ -64,10 +69,11 @@ const ColumnHeaderContainer = styled.span`
 `;
 
 const ColumnHeader = (props) => {
+  const {title, sorted, ...rest} = props;
   return (
-    <ColumnHeaderContainer className={props.className}>
-      {props.title}
-      {props.sorted && <Arrow sorted={props.sorted} />}
+    <ColumnHeaderContainer {...rest}>
+      {title}
+      {sorted && <Arrow sorted={sorted} />}
     </ColumnHeaderContainer>
   );
 };
@@ -82,6 +88,11 @@ const PermissionColumnHeader = styled(ColumnHeader)`
 
 function UsersListControls() {
   const count = useSelector(getMarkedUsersCount);
+  const currentSortingConfig = useSelector(selectSortingConfig);
+  const dispatch = useDispatch();
+
+  const reorderNameColumn = () => dispatch(changeSortingConfig(calculateNextSortingConfig(currentSortingConfig, "name")));
+  const reorderRoleColumn = () => dispatch(changeSortingConfig(calculateNextSortingConfig(currentSortingConfig, "role")));
 
   return (
     <Container>
@@ -95,9 +106,11 @@ function UsersListControls() {
         <Checkbox />
         <UserColumnHeader
           title="User"
+          onClick={reorderNameColumn}
         />
         <PermissionColumnHeader
           title="Permission"
+          onClick={reorderRoleColumn}
           sorted="desc"
         />
       </SecondRow>
