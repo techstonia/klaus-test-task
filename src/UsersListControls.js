@@ -107,11 +107,12 @@ function UsersListControls() {
         <UserColumnHeader
           title="User"
           onClick={reorderNameColumn}
+          sorted={currentSortingConfig.column === "name" && currentSortingConfig.direction}
         />
         <PermissionColumnHeader
           title="Permission"
           onClick={reorderRoleColumn}
-          sorted="desc"
+          sorted={currentSortingConfig.column === "role" && currentSortingConfig.direction}
         />
       </SecondRow>
     </Container>
