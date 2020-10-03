@@ -17,6 +17,9 @@ const usersSlice = createSlice({
     },
     markUserAsSelected: (state, action) => markUser(state, action, true),
     markUserAsDeselected: (state, action) => markUser(state, action, false),
+    toggleAllUsers: (state, action) => {
+      state.forEach((user) => user.selected = action.payload);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -34,6 +37,7 @@ export const {
   setUsers,
   markUserAsSelected,
   markUserAsDeselected,
+  toggleAllUsers,
 } = usersSlice.actions;
 
 // selectors

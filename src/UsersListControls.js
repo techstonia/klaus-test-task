@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {
   areAllUsersMarked,
   getMarkedUsersCount,
+  toggleAllUsers,
 } from './redux/usersSlice';
 import styled, {css} from 'styled-components';
 import {colors} from './styleConstants';
@@ -95,6 +96,7 @@ function UsersListControls() {
   const allUsersMarked = useSelector(areAllUsersMarked);
   const dispatch = useDispatch();
 
+  const onCheckBoxClick = (evt) => dispatch(toggleAllUsers(evt.target.checked));
   const reorderNameColumn = () => dispatch(changeSortingConfig(calculateNextSortingConfig(currentSortingConfig, "name")));
   const reorderRoleColumn = () => dispatch(changeSortingConfig(calculateNextSortingConfig(currentSortingConfig, "role")));
 
@@ -109,6 +111,7 @@ function UsersListControls() {
       <SecondRow>
         <Checkbox
           checked={allUsersMarked}
+          onChange={onCheckBoxClick}
         />
         <UserColumnHeader
           title="User"
