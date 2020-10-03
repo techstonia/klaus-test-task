@@ -1,6 +1,9 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getMarkedUsersCount} from './redux/usersSlice';
+import {
+  areAllUsersMarked,
+  getMarkedUsersCount,
+} from './redux/usersSlice';
 import styled, {css} from 'styled-components';
 import {colors} from './styleConstants';
 import {DeleteButton, EditButton} from './Buttons';
@@ -89,6 +92,7 @@ const PermissionColumnHeader = styled(ColumnHeader)`
 function UsersListControls() {
   const count = useSelector(getMarkedUsersCount);
   const currentSortingConfig = useSelector(selectSortingConfig);
+  const allUsersMarked = useSelector(areAllUsersMarked);
   const dispatch = useDispatch();
 
   const reorderNameColumn = () => dispatch(changeSortingConfig(calculateNextSortingConfig(currentSortingConfig, "name")));
@@ -103,7 +107,9 @@ function UsersListControls() {
       </FirstRow>
 
       <SecondRow>
-        <Checkbox />
+        <Checkbox
+          checked={allUsersMarked}
+        />
         <UserColumnHeader
           title="User"
           onClick={reorderNameColumn}

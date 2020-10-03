@@ -43,6 +43,9 @@ export const getMarkedUsersCount = (state) => state.users.reduce(
   (accumulator, {selected}) => accumulator + (selected ? 1 : 0),
   0,
 );
+export const areAllUsersMarked = (state) => {
+  return state.users.length > 0 && getMarkedUsersCount(state) === state.users.length;
+};
 
 // reducer
 export default usersSlice.reducer;
