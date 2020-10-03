@@ -1,4 +1,6 @@
+import _ from 'lodash';
 import {createSlice} from '@reduxjs/toolkit';
+import {changeSortingConfig} from './sortingConfigSlice';
 
 const markUser = (state, action, selected) => {
   const {payload: userId} = action;
@@ -13,6 +15,15 @@ const usersSlice = createSlice({
     setUsers: (state, action) => action.payload,
     markUserAsSelected: (state, action) => markUser(state, action, true),
     markUserAsDeselected: (state, action) => markUser(state, action, false),
+  },
+  extraReducers: (builder) => {
+    builder
+      .addMatcher(
+        (action) => action.type === changeSortingConfig().type,
+        (state, action) => {
+          return _.orderBy(state, action.payload.column, action.payload.direction);
+        },
+      );
   },
 });
 
