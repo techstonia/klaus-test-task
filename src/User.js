@@ -43,7 +43,7 @@ const Container = styled.div`
       width: ${borderRadius}px;
       height: ${rowHeight}px;
       border-radius: ${borderRadius}px 0 0 ${borderRadius}px;
-      background: #475DE5;
+      background: ${colors.brand};
     }
   `}
 `;
