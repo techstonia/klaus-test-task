@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import {createSlice} from '@reduxjs/toolkit';
-import {changeSortingConfig} from './sortingConfigSlice';
+import {changeSortingConfig, sortingConfigInitialState} from './sortingConfigSlice';
 
 const markUser = (state, action, selected) => {
   const {payload: userId} = action;
@@ -12,7 +12,9 @@ const usersSlice = createSlice({
   name: 'users',
   initialState: [],
   reducers: {
-    setUsers: (state, action) => action.payload,
+    setUsers: (state, action) => {
+      return _.orderBy(action.payload, sortingConfigInitialState.column, sortingConfigInitialState.direction);
+    },
     markUserAsSelected: (state, action) => markUser(state, action, true),
     markUserAsDeselected: (state, action) => markUser(state, action, false),
   },
