@@ -3,13 +3,16 @@ import styled from 'styled-components';
 import {createGlobalStyle} from 'styled-components';
 import Header from './Header';
 import UsersList from './UsersList';
-import {scrollableAreaWidth} from './styleConstants';
+import {
+  colors,
+  scrollableAreaWidth,
+} from './styleConstants';
 
 const GlobalStyle = createGlobalStyle`
   body, button {
     margin: 0;
     padding: 0;
-    background: #EDF2F7;
+    background: ${colors.gray20};
     font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Ubuntu;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
