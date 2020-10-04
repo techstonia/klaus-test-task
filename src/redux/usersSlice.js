@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import {createSlice} from '@reduxjs/toolkit';
 import {changeSortingConfig, sortingConfigInitialState} from './sortingConfigSlice';
+import userFilter from '../userFilter';
+import {selectSearchString} from './searchStringSlice';
 
 const markUser = (state, action, selected) => {
   const {payload: userId} = action;
@@ -41,7 +43,13 @@ export const {
 } = usersSlice.actions;
 
 // selectors
-export const selectUsersIds = state => state.users.map(({id}) => id);
+const selectUsers = (state) => {
+  const searchString = selectSearchString(state);
+  return _(state.users)
+    .filter((user) => userFilter(user, searchString))
+    .value();
+};
+export const selectUsersIds = state => selectUsers(state).map(({id}) => id);
 export const selectUser = (state, userId) => state.users.find(({id}) => id === userId);
 export const getMarkedUsersCount = (state) => state.users.reduce(
   (accumulator, {selected}) => accumulator + (selected ? 1 : 0),
