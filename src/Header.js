@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {ReactComponent as Hourglass} from './assets/hourglass.svg';
 import {colors} from './styleConstants';
+import {useDispatch} from 'react-redux';
+import {searchStringChanged} from './redux/searchStringSlice';
 
 const height = 40;
 
@@ -74,12 +76,18 @@ const ConnectUsersButton = styled.button.attrs({
 `;
 
 function Header() {
+  const dispatch = useDispatch();
+
+  const onSearchChange = (evt) => {
+    dispatch(searchStringChanged(evt.target.value));
+  };
+
   return (
     <Container>
       <Title>Account users</Title>
       <ControlsContainer>
         <SearchContainer>
-          <SearchInput />
+          <SearchInput onChange={onSearchChange}/>
           <StyledHourglass />
         </SearchContainer>
         <ConnectUsersButton>Connect users</ConnectUsersButton>
