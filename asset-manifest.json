@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.js": "/klaus-test-task/static/js/main.df465b3b.chunk.js",
+    "main.js.map": "/klaus-test-task/static/js/main.df465b3b.chunk.js.map",
+    "runtime-main.js": "/klaus-test-task/static/js/runtime-main.c2a1cd20.js",
+    "runtime-main.js.map": "/klaus-test-task/static/js/runtime-main.c2a1cd20.js.map",
+    "static/js/2.7b8fbb48.chunk.js": "/klaus-test-task/static/js/2.7b8fbb48.chunk.js",
+    "static/js/2.7b8fbb48.chunk.js.map": "/klaus-test-task/static/js/2.7b8fbb48.chunk.js.map",
+    "index.html": "/klaus-test-task/index.html",
+    "precache-manifest.3adad5929e0ecfb89e61f2c5639b7a34.js": "/klaus-test-task/precache-manifest.3adad5929e0ecfb89e61f2c5639b7a34.js",
+    "service-worker.js": "/klaus-test-task/service-worker.js",
+    "static/js/2.7b8fbb48.chunk.js.LICENSE.txt": "/klaus-test-task/static/js/2.7b8fbb48.chunk.js.LICENSE.txt",
+    "static/media/arrow-down.a283da60.svg": "/klaus-test-task/static/media/arrow-down.a283da60.svg",
+    "static/media/checkmark.1c188776.svg": "/klaus-test-task/static/media/checkmark.1c188776.svg",
+    "static/media/hourglass.c434f422.svg": "/klaus-test-task/static/media/hourglass.c434f422.svg",
+    "static/media/pen.4d4150f3.svg": "/klaus-test-task/static/media/pen.4d4150f3.svg",
+    "static/media/trash.431da9f1.svg": "/klaus-test-task/static/media/trash.431da9f1.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c2a1cd20.js",
+    "static/js/2.7b8fbb48.chunk.js",
+    "static/js/main.df465b3b.chunk.js"
+  ]
+}
