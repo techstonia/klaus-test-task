@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import {createSlice} from '@reduxjs/toolkit';
 import {selectSortingConfig} from './sortingConfigSlice';
-import userFilter from '../userFilter';
+import userFilter from './userFilter';
 import {selectSearchString} from './searchStringSlice';
 
 const markUser = (state, action, selected) => {
