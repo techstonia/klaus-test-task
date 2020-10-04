@@ -22,6 +22,10 @@ const Button = styled.button.attrs({
   border: ${borderWidth}px solid ${colors.gray30};  
   box-shadow: 0 1px 2px rgba(45, 55, 72, 0.08);
   border-radius: 4px;
+  
+  &:hover {
+    border: ${borderWidth}px solid ${colors.gray40};
+  }
 `;
 
 const StyledIcon = (Component) => styled(Component)`
