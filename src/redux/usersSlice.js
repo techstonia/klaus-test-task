@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import {createSlice} from '@reduxjs/toolkit';
-import {changeSortingConfig, sortingConfigInitialState} from './sortingConfigSlice';
+import {selectSortingConfig} from './sortingConfigSlice';
 import userFilter from '../userFilter';
 import {selectSearchString} from './searchStringSlice';
 
@@ -14,23 +14,12 @@ const usersSlice = createSlice({
   name: 'users',
   initialState: [],
   reducers: {
-    setUsers: (state, action) => {
-      return _.orderBy(action.payload, sortingConfigInitialState.column, sortingConfigInitialState.direction);
-    },
+    setUsers: (state, action) => action.payload,
     markUserAsSelected: (state, action) => markUser(state, action, true),
     markUserAsDeselected: (state, action) => markUser(state, action, false),
     toggleAllUsers: (state, action) => {
       state.forEach((user) => user.selected = action.payload);
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addMatcher(
-        (action) => action.type === changeSortingConfig().type,
-        (state, action) => {
-          return _.orderBy(state, action.payload.column, action.payload.direction);
-        },
-      );
   },
 });
 
@@ -45,8 +34,11 @@ export const {
 // selectors
 const selectUsers = (state) => {
   const searchString = selectSearchString(state);
+  const {column, direction} = selectSortingConfig(state) || {};
+
   return _(state.users)
     .filter((user) => userFilter(user, searchString))
+    .orderBy(column, direction)
     .value();
 };
 export const selectUsersIds = state => selectUsers(state).map(({id}) => id);

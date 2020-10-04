@@ -1,13 +1,11 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-export const sortingConfigInitialState = {
-  column: "name",
-  direction: "asc",
-};
-
 const sortingConfigSlice = createSlice({
   name: "sortingConfig",
-  initialState: sortingConfigInitialState,
+  initialState: {
+    column: "name",
+    direction: "asc",
+  },
   reducers: {
     changeSortingConfig: (state, action) => action.payload,
   },
