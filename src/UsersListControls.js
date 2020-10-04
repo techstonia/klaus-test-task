@@ -14,7 +14,6 @@ import {
   changeSortingConfig,
   selectSortingConfig,
 } from './redux/sortingConfigSlice';
-import calculateNextSortingConfig from './redux/calculateNextSortingConfig';
 
 const Container = styled.div`
   height: 78px;
@@ -97,8 +96,8 @@ function UsersListControls() {
   const dispatch = useDispatch();
 
   const onCheckBoxClick = (evt) => dispatch(toggleAllUsers(evt.target.checked));
-  const reorderNameColumn = () => dispatch(changeSortingConfig(calculateNextSortingConfig(currentSortingConfig, "name")));
-  const reorderRoleColumn = () => dispatch(changeSortingConfig(calculateNextSortingConfig(currentSortingConfig, "role")));
+  const reorderNameColumn = () => dispatch(changeSortingConfig("name"));
+  const reorderRoleColumn = () => dispatch(changeSortingConfig("role"));
 
   return (
     <Container>

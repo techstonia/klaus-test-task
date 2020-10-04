@@ -7,7 +7,22 @@ const sortingConfigSlice = createSlice({
     direction: "asc",
   },
   reducers: {
-    changeSortingConfig: (state, action) => action.payload,
+    changeSortingConfig: (state, action) => {
+      const columnToBePressed = action.payload;
+      const toggleCurrentColumn = state.column === columnToBePressed;
+
+      if (toggleCurrentColumn) {
+        return {
+          column: columnToBePressed,
+          direction: state.direction === "asc" ? "desc" : "asc",
+        };
+      }
+
+      return {
+        column: columnToBePressed,
+        direction: "asc",
+      };
+    },
   },
 });
 
