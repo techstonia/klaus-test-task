@@ -17,7 +17,7 @@ const Container = styled.div`
 const Title = styled.span`
   line-height: ${height}px;
   font-size: 18px;
-  color: #1A202C;
+  color: ${colors.gray90};
   font-weight: 500;
 `;
 
