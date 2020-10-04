@@ -29,7 +29,7 @@ const StyledIcon = (Component) => styled(Component)`
 `;
 
 const Text = styled.span`
-  color: #4A5568;
+  color: ${colors.gray70};
   font-weight: 500;
   font-size: 14px;
   margin: 0 12px 0 1px;
