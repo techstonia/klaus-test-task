@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import {ReactComponent as Hourglass} from './assets/hourglass.svg';
 import {colors} from './styleConstants';
@@ -76,10 +76,17 @@ const ConnectUsersButton = styled.button.attrs({
 `;
 
 function Header() {
+  const [searchText, setSearchText] = useState("");
   const dispatch = useDispatch();
 
+  // Don't want the list filtering to start immediately
+  useEffect(() => {
+    const timeOutId = setTimeout(() => dispatch(searchStringChanged(searchText)), 500);
+    return () => clearTimeout(timeOutId);
+  }, [dispatch, searchText]);
+
   const onSearchChange = (evt) => {
-    dispatch(searchStringChanged(evt.target.value));
+    setSearchText(evt.target.value);
   };
 
   return (
