@@ -2,6 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import {ReactComponent as Pen} from './assets/pen.svg';
 import {ReactComponent as Trash} from './assets/trash.svg';
+import {colors} from './styleConstants';
 
 const background = "white";
 const squareSideLength = 30;
@@ -18,7 +19,7 @@ const Button = styled.button.attrs({
   cursor: pointer;
   background: ${background};
   
-  border: ${borderWidth}px solid #E2E8F0;  
+  border: ${borderWidth}px solid ${colors.gray30};  
   box-shadow: 0 1px 2px rgba(45, 55, 72, 0.08);
   border-radius: 4px;
 `;
