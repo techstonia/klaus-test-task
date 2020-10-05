@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/klaus-test-task/static/js/main.051a5492.chunk.js",
-    "main.js.map": "/klaus-test-task/static/js/main.051a5492.chunk.js.map",
+    "main.js": "/klaus-test-task/static/js/main.4bde82b7.chunk.js",
+    "main.js.map": "/klaus-test-task/static/js/main.4bde82b7.chunk.js.map",
     "runtime-main.js": "/klaus-test-task/static/js/runtime-main.c2a1cd20.js",
     "runtime-main.js.map": "/klaus-test-task/static/js/runtime-main.c2a1cd20.js.map",
-    "static/js/2.7b8fbb48.chunk.js": "/klaus-test-task/static/js/2.7b8fbb48.chunk.js",
-    "static/js/2.7b8fbb48.chunk.js.map": "/klaus-test-task/static/js/2.7b8fbb48.chunk.js.map",
+    "static/js/2.51966881.chunk.js": "/klaus-test-task/static/js/2.51966881.chunk.js",
+    "static/js/2.51966881.chunk.js.map": "/klaus-test-task/static/js/2.51966881.chunk.js.map",
     "index.html": "/klaus-test-task/index.html",
-    "precache-manifest.232495f4c469f6bfc5863f3e9f0fe564.js": "/klaus-test-task/precache-manifest.232495f4c469f6bfc5863f3e9f0fe564.js",
+    "precache-manifest.4efd6693e5a9eef655caad88490727a3.js": "/klaus-test-task/precache-manifest.4efd6693e5a9eef655caad88490727a3.js",
     "service-worker.js": "/klaus-test-task/service-worker.js",
-    "static/js/2.7b8fbb48.chunk.js.LICENSE.txt": "/klaus-test-task/static/js/2.7b8fbb48.chunk.js.LICENSE.txt",
+    "static/js/2.51966881.chunk.js.LICENSE.txt": "/klaus-test-task/static/js/2.51966881.chunk.js.LICENSE.txt",
     "static/media/arrow-down.a283da60.svg": "/klaus-test-task/static/media/arrow-down.a283da60.svg",
     "static/media/checkmark.1c188776.svg": "/klaus-test-task/static/media/checkmark.1c188776.svg",
     "static/media/hourglass.c434f422.svg": "/klaus-test-task/static/media/hourglass.c434f422.svg",
@@ -18,7 +18,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.c2a1cd20.js",
-    "static/js/2.7b8fbb48.chunk.js",
-    "static/js/main.051a5492.chunk.js"
+    "static/js/2.51966881.chunk.js",
+    "static/js/main.4bde82b7.chunk.js"
   ]
 }
