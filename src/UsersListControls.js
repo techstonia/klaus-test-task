@@ -2,6 +2,7 @@ import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {
   areAllUsersMarked,
+  deleteSelectedUsers,
   getMarkedUsersCount,
   toggleAllUsers,
 } from './redux/usersSlice';
@@ -95,6 +96,7 @@ function UsersListControls() {
   const allUsersMarked = useSelector(areAllUsersMarked);
   const dispatch = useDispatch();
 
+  const onDeleteButtonClick = () => dispatch(deleteSelectedUsers());
   const onCheckBoxClick = (evt) => dispatch(toggleAllUsers(evt.target.checked));
   const reorderNameColumn = () => dispatch(changeSortingConfig("name"));
   const reorderRoleColumn = () => dispatch(changeSortingConfig("role"));
@@ -104,7 +106,7 @@ function UsersListControls() {
       <FirstRow>
         <UsersCount>{count} users selected</UsersCount>
         <StyledEditButton text="Edit" />
-        <DeleteButton text="Delete" />
+        <DeleteButton text="Delete" onClick={onDeleteButtonClick} />
       </FirstRow>
 
       <SecondRow>

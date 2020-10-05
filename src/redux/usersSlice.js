@@ -20,7 +20,8 @@ const usersSlice = createSlice({
     toggleAllUsers: (state, action) => {
       state.forEach((user) => user.selected = action.payload);
     },
-    deleteUser: (state, action) => _.reject(state, {id: action.payload})
+    deleteUser: (state, action) => _.reject(state, {id: action.payload}),
+    deleteSelectedUsers: (state) => _.reject(state, {selected: true}),
   },
 });
 
@@ -31,6 +32,7 @@ export const {
   markUserAsDeselected,
   toggleAllUsers,
   deleteUser,
+  deleteSelectedUsers,
 } = usersSlice.actions;
 
 // selectors
