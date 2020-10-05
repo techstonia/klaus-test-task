@@ -5,6 +5,7 @@ import {
   markUserAsSelected,
   markUserAsDeselected,
   selectUser,
+  deleteUser,
 } from './redux/usersSlice';
 import RoleLabel from './RoleLabel';
 import {
@@ -113,6 +114,11 @@ function User(props) {
     }
   };
 
+  const onDeleteButtonClick = (evt) => {
+    evt.stopPropagation();
+    dispatch(deleteUser(user.id));
+  };
+
   const stopPropagation = (evt) => evt.stopPropagation();
 
   const renderButtons = () => {
@@ -120,7 +126,7 @@ function User(props) {
       return (
         <ButtonsContainer>
           <StyledEditButton text="Edit" onClick={stopPropagation} />
-          <DeleteButton onClick={stopPropagation} />
+          <DeleteButton onClick={onDeleteButtonClick} />
         </ButtonsContainer>
       );
     }
