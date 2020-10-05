@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/klaus-test-task/static/js/main.7a9f609d.chunk.js",
-    "main.js.map": "/klaus-test-task/static/js/main.7a9f609d.chunk.js.map",
+    "main.js": "/klaus-test-task/static/js/main.051a5492.chunk.js",
+    "main.js.map": "/klaus-test-task/static/js/main.051a5492.chunk.js.map",
     "runtime-main.js": "/klaus-test-task/static/js/runtime-main.c2a1cd20.js",
     "runtime-main.js.map": "/klaus-test-task/static/js/runtime-main.c2a1cd20.js.map",
     "static/js/2.7b8fbb48.chunk.js": "/klaus-test-task/static/js/2.7b8fbb48.chunk.js",
     "static/js/2.7b8fbb48.chunk.js.map": "/klaus-test-task/static/js/2.7b8fbb48.chunk.js.map",
     "index.html": "/klaus-test-task/index.html",
-    "precache-manifest.595e761b3913daa313ef3f723bc30bda.js": "/klaus-test-task/precache-manifest.595e761b3913daa313ef3f723bc30bda.js",
+    "precache-manifest.232495f4c469f6bfc5863f3e9f0fe564.js": "/klaus-test-task/precache-manifest.232495f4c469f6bfc5863f3e9f0fe564.js",
     "service-worker.js": "/klaus-test-task/service-worker.js",
     "static/js/2.7b8fbb48.chunk.js.LICENSE.txt": "/klaus-test-task/static/js/2.7b8fbb48.chunk.js.LICENSE.txt",
     "static/media/arrow-down.a283da60.svg": "/klaus-test-task/static/media/arrow-down.a283da60.svg",
@@ -19,6 +19,6 @@
   "entrypoints": [
     "static/js/runtime-main.c2a1cd20.js",
     "static/js/2.7b8fbb48.chunk.js",
-    "static/js/main.7a9f609d.chunk.js"
+    "static/js/main.051a5492.chunk.js"
   ]
 }
